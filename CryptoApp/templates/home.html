@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+    {% block content %}
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Crypto MarketCap</h1>
+  </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <table class="table table-striped text-center">
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Daily High</th>
+                <th scope="col">Daily Low</th>
+                <th scope="col">Market Cap</th>
+                <th scope="col">Volume (24h)</th>
+                <th scope="col">Change (24h)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key,value in price.DISPLAY.items %}
+                    <tr>
+                        <th scope="row">{{ key }}</th><br>
+                        <td>{{ value.USD.PRICE }}</td>
+                        <td>{{ value.USD.HIGHDAY }}</td>
+                        <td>{{ value.USD.LOWDAY }}</td>
+                        <td>{{ value.USD.MKTCAP }}</td>
+                        <td>{{ value.USD.TOTALVOLUME24H }}</td>
+                        <td>{{ value.USD.CHANGE24HOUR }}</td>               
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    {% endblock content %}
